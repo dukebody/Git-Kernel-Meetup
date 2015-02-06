@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Git (for real)</title>
+
+		<meta name="description" content="Motivating intro about Git for Kernel Meetups">
+		<meta name="author" content="Israel Saeta and Diego Gruber">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Git</h1>
+					<h6><small>(for real)</small></h6>
+					<p>
+						<small>By Israel Saeta &amp; Diego Gruber</small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h1>What is Git?</h1>
+					</section>
+					<section>
+						<h2>Git is a Decentralized Version Control System (D<b>VCS</b>)</h2>
+						<p class="fragment">
+							Store <b>snapshots</b> of the current file contents of a project
+						</p>
+						<p class="fragment">
+							Track code changes between snapshots
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>What can Git do for you?</h1>
+					</section>
+					<section>
+						<h2>Backup copy</h2>
+						<p>Keep a backup copy of a previous state of a project</p>
+						<ul>
+							<li>Easy rollback when something breaks</li>
+							<li>See how something was done time ago</li>
+							<li>Checkout the snapshot at any point in time</li>
+							<li>Forget about commenting out, <b>just nuke it!</b></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Track how, when, who, why</h2>
+						<p>Every change (commit) includes:</p>
+						<ul>
+							<li>Lines of code changed, in multiple files</li>
+							<li>Date and time</li>
+							<li>Author name and email (to take the blame)</li>
+							<li>Human-readable description of the changes (commit message)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Branch out your work!</h2>
+						<p><small>(you can always merge back later)</small></p>
+						<p>Create as many extra branches as you want:</p>
+						<ul>
+							<li>Main development</li>
+							<li>Bugfix and feature</li>
+							<li>Experiments</li>
+						</ul>
+						<p>Branches are cheap, Git just stores <b>differences</b></p>
+					</section>
+
+					<section>
+						<h2>Collaborate with others</h2>
+						<ul>
+							<li>Peer / hierarchical review</li>
+							<li>Comment on changes</li>
+							<li>Iterative submissions + accept / reject</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>You can only use Git well if you understand how it works</h2>
+						<h4 class="fragment">Don't be a script kiddie</h4>
+					</section>
+
+					<section>
+						<h2>Structure of a Git repository</h2>
+						<p>Graph picture showing:</p>
+						<ul>
+							<li>Commits (diff, parents, sha1 name)</li>
+							<li>Heads (ref to commit object, selected HEAD)</li>
+						</ul>
+					</section>
+
+					<section>
+						<img src="img/conventions.svg.png" alt="conventions">
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Basic commands (demo)</h2>
+						<ul>
+							<li>git init</li>
+							<li>git add</li>
+							<li>git status</li>
+							<li>git diff</li>
+							<li>git commit -m (-a) </li>
+							<li>git mv / git rm</li>
+						</ul>
+					</section>
+
+					<section>
+						<img src="img/basic-usage.svg.png" alt="workdir-index-history">
+					</section>
+					<section>
+						<img src="img/diff.svg.png" alt="diff">
+					</section>
+
+					<section></section>
+				</section>
+				<section>
+					<section>
+						<h2>Branching commands</h2>
+					</section>
+					<section>
+						<p>git checkout <em>branchname</em></p>
+						<img src="img/checkout-branch.svg.png" alt="diff">
+
+						</ul>
+					</section>
+
+					<section>
+						<p>git checkout -b <em>branchname</em></p>
+					</section>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
