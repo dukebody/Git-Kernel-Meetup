@@ -48,6 +48,8 @@
 					</p>
 				</section>
 
+				<section>JOKE ABOUT THE GIT NAME HERE</section>
+
 				<section>
 					<section>
 						<h1>What is Git?</h1>
@@ -114,20 +116,19 @@
 				<section>
 					<section>
 						<h2>You can only use Git well if you understand how it works</h2>
-						<h4 class="fragment">Don't be a script kiddie</h4>
+						<h4>Don't be a script kiddie</h4>
 					</section>
 
 					<section>
 						<h2>Structure of a Git repository</h2>
-						<p>Graph picture showing:</p>
-						<ul>
-							<li>Commits (diff, parents, sha1 name)</li>
-							<li>Heads (ref to commit object, selected HEAD)</li>
-						</ul>
-					</section>
-
-					<section>
 						<img src="img/conventions.svg.png" alt="conventions">
+						<aside class="notes">
+							<p>Graph picture showing:</p>
+							<ul>
+								<li>Commits (diff, parents, sha1 name)</li>
+								<li>Heads (ref to commit object, selected HEAD)</li>
+							</ul>
+						</aside>
 					</section>
 				</section>
 
@@ -135,42 +136,135 @@
 					<section>
 						<h2>Basic commands (demo)</h2>
 						<ul>
+							<li>git help <em>command</em></li>
 							<li>git init</li>
-							<li>git add</li>
+							<li>git clone <em>URL</em></li>
+							<li>git add <em>file1 file2 ...</em></li>
 							<li>git status</li>
-							<li>git diff</li>
-							<li>git commit -m (-a) </li>
-							<li>git mv / git rm</li>
+							<li>git diff [--cached] [[ref1] [ref2]]</li>
+							<li>git commit [-m] [-a] [--amend] </li>
+							<li>git mv <em>source</em> <em>dest</em></li>
+							<li>git rm <em>file</em></li>
+							<li>git log [--graph] [--oneline] [--decorate]</li>
 						</ul>
 					</section>
 
 					<section>
+						<h3>git add / git commit</h3>
 						<img src="img/basic-usage.svg.png" alt="workdir-index-history">
+						<p>Mark changes for inclusion and save them</p>
 					</section>
 					<section>
+						<h3>git diff</h3>
 						<img src="img/diff.svg.png" alt="diff">
+						<p>See differences</p>
 					</section>
 
-					<section></section>
 				</section>
+
 				<section>
 					<section>
-						<h2>Branching commands</h2>
-					</section>
-					<section>
-						<p>git checkout <em>branchname</em></p>
-						<img src="img/checkout-branch.svg.png" alt="diff">
-
+						<h2>Branching commands (demo)</h2>
+						<ul>
+							<li>git branch</li>
+							<li>git checkout</li>
+							<li>git checkout -b</li>
 						</ul>
 					</section>
+					<section>
+						<h3>git checkout <em>branchname</em></h3>
+						<img src="img/checkout-branch.svg.png" alt="checkout">
+						<p>Move head to a different branch</p>
+						<p><small>Also to specific commits or relative (HEAD~N)</small></p>
+					</section>
 
 					<section>
-						<p>git checkout -b <em>branchname</em></p>
+						<h2>git checkout -b <em>branchname</em></h2>
+						<img src="img/checkout-b-detached.svg.png" alt="checkout-b">
+						<p>Spawn new branch from current head</p>
 					</section>
 				</section>
 
-			</div>
+				<section>
+					<section>
+						<h1>Merging</h1>
+						<p>Don't be afraid</p>
+					</section>
+					<section>
+						<h2>Merging basic idea</h2>
+						<ul>
+							<li>git checkout <em>branch-you-want-to-merge-to</em></li>
+							<li>git merge <em>feature-branch</em></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Fast-Forward: The easy case</h2>
+						<img src="img/merge-ff.svg.png" alt="merge-ff">
+						<p>Current HEAD is ancestor of branch tip to merge</p>
+					</section>
+					<section>
+						<h2>Three-way: The common case</h2>
+						<img src="img/merge.svg.png" alt="merge">
+						<p>Creates extra commit automatically</p>
+					</section>
+					<section>
+						<h2>Conflicts - OMG</h2>
+						<pre><code data-trim>
+$ (master) git merge my-feature-branch
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
 
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add &ltfile&gt..." to mark resolution)
+
+    both modified:      index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+						</code></pre>
+					</section>
+					<section>
+					<h2>Standard conflict markers</h2>
+					<pre><code data-trim>
+&lt&lt&lt&lt&lt&lt&lt HEAD:index.html
+contact : email.support@github.com
+=======
+ please contact us at support@github.com
+&gt&gt&gt&gt&gt&gt&gt iss53:index.html
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Collaborating with others</h1>
+					</section>
+					<section>
+						<h2>Remotes</h2>
+						<ul>
+							<li>They are remote <em>repositories</em></li>
+							<li>Usually only one, <em>origin</em>, pointing to GitHub, BitBucket, etc.</li>
+							<li>Local branches <em>can</em> track remote branches (master → origin/master)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Basic work with remotes (demo)</h2>
+					</section>
+					<section>
+						<h2>git clone <em>URL</em> <em>[folder]</em></h2>
+						<p>Clone all branches of remote repository, adding remote tracking heads for all them.</p>
+					</section>
+					<section>
+						<h2>git pull <em>[remote-name]</em> <em>[remote-branch]</em></h2>
+						<p>Update remote-branch head and merge it into the current branch.</p>
+					</section>
+				</section>
+			</div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
