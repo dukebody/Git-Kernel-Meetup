@@ -323,19 +323,25 @@ contact : email.support@github.com
             <ul>
             	<li>Branching structure</li>
             	<li>Merging rules</li>
-            	<li>Examples: centralized, feature branch, Gitflow, forking, etc.</li>
+            	<li>Standard workflows: centralized, feature branch, Gitflow, forking, etc.</li>
             </ul>
           </section>
           <section>
             <h2> The Feature Branch Workflow </h2>
-            <img src="img/feature_branch_workflow.svg">
           </section>
           <section>
           	<h3>Branching structure</h3>
-          	<ul>
-            	<li>One main branch (master).</li>
-            	<li>New feature branches.</li>
-          	</ul>
+          	<div>
+          		<div style="width:30%; float:left">
+		          	<ul>
+		            	<li style="color:LightBlue">Main branch (master)</li>
+		            	<li style="color:MediumPurple">Feature 1</li>
+		            	<li style="color:MediumAquaMarine">Feature 2</li>
+		          	</ul>
+          		</div>
+          		<div style="width:70%; float:right">
+            		<img src="img/feature_branch_workflow.svg">
+          		</div>
           </section>
           <section>
           	<h3>Merging rules</h3>
@@ -346,15 +352,76 @@ contact : email.support@github.com
           </section>
           <section>
             <h2> The Gitflow Workflow </h2>
-            <img src="img/gitflow_workflow.svg">
-
+          </section>
+          <section>
+          	<h3>Branching structure</h3>
+          	<div>
+          		<div style="width:30%; float:left">
+		          	<p>Top to bottom:</p>
+		          	<ul>
+		            	<li style="color:LightBlue">Production</li>
+		            	<li style="color:White">Hotfixes</li>
+		            	<li style="color:Turquoise">Releases</li>
+		            	<li style="color:MediumPurple">Development</li>
+		            	<li style="color:MediumAquaMarine">Features</li>
+		          	</ul>
+          		</div>
+          		<div style="width:70%; float:right">
+            		<img src="img/gitflow_workflow.svg">
+          		</div>
+          	</div>
+          </section>
+          <section>
+          	<h3>Merging rules</h3>
+            	<ul>
+	            	<li>When feature ready, request pull to develop.</li>
+	            	<li>If enough new features, create release branch</li>
+	            	<li>No new features in release branch (bugfixes, docs, etc.)</li>
+	            	<li>If release ready, request pull to production</li>
+	            	<li>Tag each new commit in production branch</li>
+	            	<li>If bug found in production branch, create hotfix branch!</li>
+	            	<li>If hotfix ready, pull to production (sync everything else!)</li>
+	            	<li>In general, keep lower branches in sync with higher branches.</li>
+            	</ul>
           </section>
           <section>
             <h2> The Forking Workflow </h2>
-            <img src="img/forking_workflow.svg">
           </section>
           <section>
-            <h2> Learn <a href=https://www.atlassian.com/git/tutorials/comparing-workflows/>more.</a> </h2>
+          	<h3>Branching structure</h3>
+          	<div>
+          		<div style="width:30%; float:left">
+		          	<ul>
+		            	<li style="color:LightBlue">"Official" repository</li>
+		            	<li style="color:MediumPurple">Developer A's repository</li>
+		            	<li style="color:MediumAquaMarine">Developer B's repository</li>
+		          	</ul>
+          		</div>
+          		<div style="width:70%; float:right">
+            		<img src="img/forking_workflow.svg">
+          		</div>
+          	</div>
+          </section>
+          <section>
+          	<h3>Merging rules</h3>
+            	<ul>
+	            	<li>Each developer forks official repository, creates local copy.</li>
+	            	<li>Developers work on features locally (keep branchin'!).</li>
+	            	<li>Developers push commits to their own repository.</li>
+	            	<li>Pull requests filed to project maintainer.</li>
+	            	<li>Maintainer decides whether to integrate request into official repository</li>
+	            	<li>Developers keep their forks in sync with official repository.</li>
+            	</ul>
+          </section>
+          <section>
+            <h2>Bottom line</h2>
+            <ul>
+            	<li>Use workflow that suits your needs (team size, project type)</li>
+            	<li>Create your own workflows</li>
+            	<li>Crucial: define workflow at start of your project and stick to it.</li>
+            	<li>Workflow should be clear to all developers.</li>
+            	<li>Learn <a href=https://www.atlassian.com/git/tutorials/comparing-workflows/>more</a> about workflows.</li>
+            </ul>
           </section>
         </section>
 
