@@ -157,6 +157,9 @@
 
 				<section>
 					<section>
+						<h1><span style="font-size: 0.3em">Mini</span> tutorial</h1>
+					</section>
+					<section>
 						<h2>Basic commands (demo)</h2>
 						<ul>
 							<li>git help <em>command</em></li>
@@ -179,36 +182,38 @@
 					</section>
 					<section>
 						<h3>git diff</h3>
-						<img src="img/diff.svg.png" alt="diff">
+						<img src="img/diff.svg.png" alt="diff" style="height: 400px">
 						<p>See differences</p>
 					</section>
 
-				</section>
-
-				<section>
 					<section>
 						<h2>Branching commands (demo)</h2>
 						<ul>
 							<li>git branch</li>
 							<li>git checkout</li>
 							<li>git checkout -b</li>
+							<li>git reset <em>commit-or-branch</em></li>
 						</ul>
 					</section>
 					<section>
 						<h3>git checkout <em>branchname</em></h3>
-						<img src="img/checkout-branch.svg.png" alt="checkout">
+						<img src="img/checkout-branch.svg.png" alt="checkout" style="height: 400px">
 						<p>Move head to a different branch</p>
 						<p><small>Also to specific commits or relative (HEAD~N)</small></p>
 					</section>
 
 					<section>
-						<h2>git checkout -b <em>branchname</em></h2>
-						<img src="img/checkout-b-detached.svg.png" alt="checkout-b">
+						<h3>git checkout -b <em>branchname</em></h3>
+						<img src="img/checkout-b-detached.svg.png" alt="checkout-b" style="height: 400px">
 						<p>Spawn new branch from current head</p>
 					</section>
-				</section>
 
-				<section>
+					<section>
+						<h3>git reset <em>commit-or-branch</em></h3>
+						<img src="img/reset-commit.svg.png" alt="reset" style="height: 400px">
+						<p>Move the current branch to another position</p>
+					</section>
+
 					<section>
 						<h1>Merging</h1>
 						<p>Don't be afraid</p>
@@ -222,12 +227,12 @@
 					</section>
 					<section>
 						<h2>Fast-Forward: The easy case</h2>
-						<img src="img/merge-ff.svg.png" alt="merge-ff">
+						<img src="img/merge-ff.svg.png" alt="merge-ff" style="height: 400px">
 						<p>Current HEAD is ancestor of branch tip to merge</p>
 					</section>
 					<section>
 						<h2>Three-way: The common case</h2>
-						<img src="img/merge.svg.png" alt="merge">
+						<img src="img/merge.svg.png" alt="merge" style="height: 400px">
 						<p>Creates extra commit automatically</p>
 					</section>
 					<section>
@@ -238,7 +243,7 @@ Auto-merging index.html
 CONFLICT (content): Merge conflict in index.html
 Automatic merge failed; fix conflicts and then commit the result.
 
-$ git status
+$ (master) git status
 On branch master
 You have unmerged paths.
   (fix conflicts and run "git commit")
@@ -260,6 +265,12 @@ contact : email.support@github.com
  please contact us at support@github.com
 &gt&gt&gt&gt&gt&gt&gt iss53:index.html
 						</code></pre>
+					</section>
+
+					<section>
+						<h2>git rebase</h2>
+						<img src="img/rebase.svg.png" alt="rebase" style="height: 400px">
+						<p>Alternative to pulling upstream changes, <em>replaying</em> a history</p>
 					</section>
 				</section>
 
@@ -302,10 +313,12 @@ contact : email.support@github.com
 							<li>git config [--global] user.name John Doe</li>
 							<li>Make sure you have latest version of a branch
 							from upstream before pushing new changes. Pull before commiting.</li>
+							<li>Rule of thumb: never change anything in a remote repository others
+							might be basing their work on</li>
 						</ul>
 					</section>
 					<section>
-						<h2>Demo pull request in BitBucket</h2>
+						<h2>Demo pull request in GitHub/BitBucket</h2>
 						<p>Submit a proposed change in a branch
 						and let a workmate review and merge it.</p>
 					</section>
