@@ -32,6 +32,12 @@
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+
+		<style>
+			.question {
+				font-weight: bold !important;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -58,6 +64,7 @@
 							<li>Installing, concepts &amp; mini tutorial</li>
 							<li>Workflows</li>
 							<li>Using a GUI</li>
+							<li>FAQ</li>
 						</ul>
 					</section>
 				</section>
@@ -494,6 +501,44 @@ contact : email.support@github.com
           <section>
             <h2> Sourcetree demo </h2>
           </section>
+        </section>
+
+        <section>
+        	<section>
+        		<h1>FAQ</h1>
+        	</section>
+        	<section>
+        		<h2>Use Stack Overflow</h2>
+        		<p>And remember to vote up!</p>
+        	</section>
+        	<section>
+        		<p class="question">There is a stupid tiny error in my last commit, how do I fix it?</p>
+        		<p>Fix it in your working directory, add it and use <br><em>git commit --amend</em></p>
+        	</section>
+        	<section>
+        		<p class="question">I did some (3) commits in the wrong branch, how do I move them to the correct one?</p>
+				<pre><code data-trim>
+(master) git branch newbranch  # create newbranch at current point
+(master) git reset --hard HEAD~3  # Go back 3 commits.
+(master) git checkout newbranch
+(newbranch)
+				</code></pre>
+        	</section>
+        	<section>
+        		<p class="question">I fucked it up really bad in my local repo. How do I reset to origin?</p>
+				<pre><code data-trim>
+git fetch --all  # get all from origin without merging anything
+git reset --hard origin/branchname  # replace current branch
+				</code></pre>
+        	</section>
+			<section>
+				<p class="question">I commited some temporary/compiling/log files to my repository. How do I stop tracking them?</p>
+				<pre><code data-trim>
+git rm --cached files
+				</code></pre>
+				<p>Then append their patterns to <a href="https://help.github.com/articles/ignoring-files/">.gitignore</a></p>
+			</section>
+
         </section>
 
         <section>
