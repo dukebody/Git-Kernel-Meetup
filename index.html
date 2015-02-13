@@ -147,10 +147,19 @@
 					<section>
 						<h2>Collaborate with others</h2>
 						<ul>
+							<li>Easy way to share code</li>
 							<li>Peer / hierarchical review</li>
 							<li>Comment on changes</li>
 							<li>Iterative submissions + accept / reject</li>
 							<li>See who wrote any given line, and when</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Controlling &amp; Deployment</h2>
+						<ul>
+							<li>Trigger automated deployment every time you commit to a certain branch</li>
+							<li>Watch incoming commits and reject them if they include certain words (debugging code)</li>
 						</ul>
 					</section>
 				</section>
@@ -159,9 +168,8 @@
 					<h2>Installing Git</h2>
 					<ul>
 						<li>Linux: use your package manager</li>
-						<li>Mac: get the binaries <a href="http://git-scm.com/downloads">from the
-							official website</a> or use <a href="http://brew.sh/">Homebrew</a></li>
-						<li>Windows: install <a href="http://www.sourcetreeapp.com/">SourceTree</a></li>
+						<li>Mac and Windows: get the binaries <a href="http://git-scm.com/downloads">from the
+							official website</a>. And install <a href="http://www.sourcetreeapp.com/">SourceTree</a></li>
 					</ul>
 				</section>
 
@@ -208,6 +216,19 @@
 						<h3>git add / git commit</h3>
 						<img src="img/basic-usage.svg.png" alt="workdir-index-history">
 						<p>Mark changes for inclusion and save them</p>
+					</section>
+					<section>
+						<h2>.gitignore</h2>
+						<ul>
+							<li>Rule of thumb: only track source files and necessary assets, like images</li>
+							<li>Do not track: binaries result of compilation, log files</li>
+							<li>Use a <em>.gitignore</em> file in the root of the repository to avoid commiting unneeded files</li>
+						</ul>
+						<pre><code data-trim>
+*.pyc
+*.so
+						</code></pre>
+						<p>Templates for dozens of languages available at <a href="https://github.com/github/gitignore">github.com/github/gitignore</a></p>
 					</section>
 					<section>
 						<h3>git diff</h3>
@@ -340,6 +361,7 @@ contact : email.support@github.com
 							from upstream before pushing new changes. Pull before commiting.</li>
 							<li>Rule of thumb: never change anything in a remote repository others
 							might be basing their work on</li>
+							<li>Remember to push your changes before leaving!</li>
 						</ul>
 					</section>
 					<section>
